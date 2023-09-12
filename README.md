@@ -21,5 +21,24 @@ To compile and run the code, you need:
 
 Open a terminal or command prompt and navigate to the directory where the code is located. Use the following command to compile the code:
 
+main:
 ```bash
 g++ -o sortingAlgorithms main.cpp
+```
+listgen:
+```bash
+g++ -o listgen listgen.cpp
+```
+
+###Usage
+
+Open a terminal or command prompt and navigate to the directory where the code is located. Use the following command to use the code:
+
+main.cpp:
+```bash
+./sortingAlgorithms
+```
+listgen.cpp:
+```bash
+./listgen
+```
