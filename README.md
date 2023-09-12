@@ -30,7 +30,7 @@ listgen:
 g++ -o listgen listgen.cpp
 ```
 
-###Usage
+### Usage
 
 Open a terminal or command prompt and navigate to the directory where the code is located. Use the following command to use the code:
 
