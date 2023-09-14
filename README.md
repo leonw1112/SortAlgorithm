@@ -23,7 +23,7 @@ Open a terminal or command prompt and navigate to the directory where the code i
 
 main:
 ```bash
-g++ -o sortingAlgorithms main.cpp
+g++ -o main main.cpp
 ```
 listgen:
 ```bash
@@ -36,7 +36,7 @@ Open a terminal or command prompt and navigate to the directory where the code i
 
 main.cpp:
 ```bash
-./sortingAlgorithms
+./main
 ```
 listgen.cpp:
 ```bash
