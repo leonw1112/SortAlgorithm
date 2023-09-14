@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <ctime>
+#include <string.h>
 using namespace std;
 
 void bubblesort(int *array, int length)
@@ -113,15 +114,15 @@ void insertionsort(int *array, int size)
 {
     for (int step = 1; step < size; step++)
     {
-        int key = array[step];
+        int cvalue = array[step];
         int j = step - 1;
 
-        while (key < array[j] && j >= 0)
+        while (cvalue < array[j] && j >= 0)
         {
             array[j + 1] = array[j];
             --j;
         }
-        array[j + 1] = key;
+        array[j + 1] = cvalue;
     }
 }
 
@@ -188,18 +189,21 @@ int *readNumbers(int &size)
     return numbers;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-
+    if (argc <= 1)
+    {
+        cout << "Please enter a parameter. (type ./main help)"
+             << "\n";
+        exit(1);
+    }
+    char *operation[] = {"bubble", "quick", "merge", "insertion", "heap", "help"};
     int size;
     int *array = readNumbers(size);
-
-    string algo;
-    cout << "Which algorithm do you want to use? (Bubble, Quick, Merge, Insertion, Heap): ";
-    cin >> algo;
     clock_t start = clock();
-    if (algo == "Bubble")
+    if (strcmp(argv[1], operation[0]) == 0)
     {
+        cout << "Running bubblesort." << endl;
         bubblesort(array, size);
 
         // Output the sorted list
@@ -208,8 +212,9 @@ int main()
             cout << array[i] << endl;
         }
     }
-    else if (algo == "Quick") // Changed to "else if"
+    else if (strcmp(argv[1], operation[1]) == 0) // Changed to "else if"
     {
+        cout << "Running quicksort." << endl;
         quicksort(array, 0, size - 1);
         // Output the sorted list
         for (int i = 0; i < size; ++i)
@@ -217,8 +222,9 @@ int main()
             cout << array[i] << endl;
         }
     }
-    else if (algo == "Merge")
+    else if (strcmp(argv[1], operation[2]) == 0)
     {
+        cout << "Running mergesort." << endl;
         mergesort(array, 0, size - 1);
         // Output the sorted list
         for (int i = 0; i < size; ++i)
@@ -226,8 +232,9 @@ int main()
             cout << array[i] << endl;
         }
     }
-    else if (algo == "Insertion")
+    else if (strcmp(argv[1], operation[3]) == 0)
     {
+        cout << "Running insertionsort." << endl;
         insertionsort(array, size);
         // Output the sorted list
         for (int i = 0; i < size; ++i)
@@ -235,8 +242,9 @@ int main()
             cout << array[i] << endl;
         }
     }
-    else if (algo == "Heap")
+    else if (strcmp(argv[1], operation[4]) == 0)
     {
+        cout << "Running heapsort." << endl;
         heapsort(array, size);
         // Output the sorted list
         for (int i = 0; i < size; ++i)
@@ -244,11 +252,15 @@ int main()
             cout << array[i] << endl;
         }
     }
+    else if (strcmp(argv[1], operation[5]) == 0)
+    {
+        cout << "----------";
+        cout << "Operations:\n bubble \n quick \n merge \n insertion \n heap \n";
+    }
     else
     {
         cout << "Invalid algorithm choice." << endl;
     }
-
     delete[] array;
     clock_t end = clock();
 

@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+listgen
+main
+list.txt
