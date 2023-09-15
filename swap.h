@@ -1,0 +1,1 @@
+void swap(int *array, int pos1, int pos2);

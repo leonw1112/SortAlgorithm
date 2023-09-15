@@ -1,0 +1,1 @@
+void mergesort(int *array, int low, int high);
