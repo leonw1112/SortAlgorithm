@@ -1,5 +1,6 @@
 
 #include "mergesort.h"
+
 void MergeSort::sort(int *array, int low, int high)
 {
     if (low < high)

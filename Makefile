@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -g
 
-OBJ = main.o bubble.o heap.o heapify.o insertion.o mergesort.o partition.o quick.o swap.o
+OBJ = main.o bubble.o heap.o heapify.o insertion.o mergesort.o quick.o sortbase.o
 
 
 

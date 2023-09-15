@@ -5,9 +5,8 @@
 #include <string.h>
 #include <vector>
 #include <algorithm>
+// #include "sortbase.h"
 #include "bubble.h"
-#include "swap.h"
-#include "partition.h"
 #include "quick.h"
 #include "mergesort.h"
 #include "insertion.h"
@@ -59,12 +58,16 @@ int main(int argc, char *argv[])
 
         BubbleSort s;
         s.sort(array, v.size());
+
+        s.print(array, v.size());
     }
     else if (strcmp(argv[1], operation[2]) == 0) // Changed to "else if"
     {
         cout << "Running quicksort." << endl;
         QuickSort s;
         s.sort(array, 0, v.size() - 1);
+
+        s.print(array, v.size());
     }
     else if (strcmp(argv[1], operation[3]) == 0)
     {
@@ -94,11 +97,7 @@ int main(int argc, char *argv[])
     {
         cout << "Invalid algorithm choice." << endl;
     }
-    // Output the sorted list
-    for (int i = 0; i < v.size(); ++i)
-    {
-        cout << array[i] << endl;
-    }
+
     clock_t end = clock();
 
     double timeDifference = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000.0;

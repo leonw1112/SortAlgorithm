@@ -1,5 +1,6 @@
-#include "partition.h"
+
 #include "quick.h"
+
 void QuickSort::sort(int *array, int low, int high)
 {
     if (low < high)
