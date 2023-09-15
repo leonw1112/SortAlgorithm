@@ -1,1 +1,5 @@
-void heapsort(int array[], int size);
+class HeapSort
+{
+public:
+    void sort(int *array, int size);
+};

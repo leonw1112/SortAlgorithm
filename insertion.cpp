@@ -1,4 +1,6 @@
-void insertionsort(int *array, int size)
+#include "insertion.h"
+
+void InsertionSort::sort(int *array, int size)
 {
     for (int step = 1; step < size; step++)
     {

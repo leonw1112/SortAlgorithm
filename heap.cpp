@@ -1,8 +1,9 @@
 #include <iostream>
 #include "heapify.h"
+#include "heap.h"
 using namespace std;
 
-void heapsort(int array[], int size)
+void HeapSort::sort(int array[], int size)
 {
     // Build max heap
     for (int i = size / 2 - 1; i >= 0; i--)

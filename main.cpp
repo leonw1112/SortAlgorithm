@@ -9,7 +9,6 @@
 #include "swap.h"
 #include "partition.h"
 #include "quick.h"
-#include "merge.h"
 #include "mergesort.h"
 #include "insertion.h"
 #include "heapify.h"
@@ -57,52 +56,34 @@ int main(int argc, char *argv[])
     if (strcmp(argv[1], operation[1]) == 0)
     {
         cout << "Running bubblesort." << endl;
-        bubblesort(array, v.size());
-        // Output the sorted list
-        for (int i = 0; i < v.size(); ++i)
-        {
-            cout << array[i] << endl;
-        }
+
+        BubbleSort s;
+        s.sort(array, v.size());
     }
     else if (strcmp(argv[1], operation[2]) == 0) // Changed to "else if"
     {
         cout << "Running quicksort." << endl;
-        quicksort(array, 0, v.size() - 1);
-        // Output the sorted list
-        for (int i = 0; i < v.size(); ++i)
-        {
-            cout << array[i] << endl;
-        }
+        QuickSort s;
+        s.sort(array, 0, v.size() - 1);
     }
     else if (strcmp(argv[1], operation[3]) == 0)
     {
         cout << "Running mergesort." << endl;
-        mergesort(array, 0, v.size() - 1);
-        // Output the sorted list
-        for (int i = 0; i < v.size(); ++i)
-        {
-            cout << array[i] << endl;
-        }
+        MergeSort s;
+        s.sort(array, 0, v.size() - 1);
     }
     else if (strcmp(argv[1], operation[4]) == 0)
     {
         cout << "Running insertionsort." << endl;
-        insertionsort(array, v.size());
-        // Output the sorted list
-        for (int i = 0; i < v.size(); ++i)
-        {
-            cout << array[i] << endl;
-        }
+        InsertionSort s;
+        s.sort(array, v.size());
     }
     else if (strcmp(argv[1], operation[5]) == 0)
     {
         cout << "Running heapsort." << endl;
-        heapsort(array, v.size());
-        // Output the sorted list
-        for (int i = 0; i < v.size(); ++i)
-        {
-            cout << array[i] << endl;
-        }
+
+        HeapSort s;
+        s.sort(array, v.size());
     }
     else if (strcmp(argv[1], operation[0]) == 0)
     {
@@ -113,12 +94,18 @@ int main(int argc, char *argv[])
     {
         cout << "Invalid algorithm choice." << endl;
     }
+    // Output the sorted list
+    for (int i = 0; i < v.size(); ++i)
+    {
+        cout << array[i] << endl;
+    }
     clock_t end = clock();
 
     double timeDifference = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000.0;
 
     std::cout << "Difference in ms: " << timeDifference << " ms" << std::endl;
-    cout << "Processed " << v.size() << " elements" << endl;
+    cout << "Processed " << v.size() << " elements"
+         << " with " << argv[1] << endl;
 
     return 0;
 }

@@ -1,7 +1,11 @@
 #include <iostream>
 #include <stdlib.h>
+
+#include "bubble.h"
+
 using namespace std;
-void bubblesort(int *array, int length)
+
+void BubbleSort::sort(int *array, int length)
 {
     bool swapped;
     do

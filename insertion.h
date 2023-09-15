@@ -1,1 +1,5 @@
-void insertionsort(int *array, int size);
+class InsertionSort
+{
+public:
+    void sort(int *array, int size);
+};
