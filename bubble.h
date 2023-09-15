@@ -1,1 +1,1 @@
-void bubblesort(int array, int length);
+void bubblesort(int *array, int length);

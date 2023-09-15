@@ -1,3 +1,5 @@
+#include "swap.h"
+
 int partition(int array[], int low, int high, int pivot)
 {
     int i = low;

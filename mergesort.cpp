@@ -1,4 +1,4 @@
-#include <merge.h>
+#include "merge.h"
 
 void mergesort(int *array, int low, int high)
 {

@@ -1,6 +1,5 @@
-#include <heapify.h>
 #include <iostream>
-
+#include "heapify.h"
 using namespace std;
 
 void heapsort(int array[], int size)

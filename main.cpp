@@ -5,15 +5,15 @@
 #include <string.h>
 #include <vector>
 #include <algorithm>
-#include <bubble.h>
-#include <swap.h>
-#include <partition.h> 
-#include <quick.h>
-#include <merge.h>
-#include <mergesort.h>
-#include <insertion.h>
-#include <heapify.h>
-#include <heap.h>
+#include "bubble.h"
+#include "swap.h"
+#include "partition.h"
+#include "quick.h"
+#include "merge.h"
+#include "mergesort.h"
+#include "insertion.h"
+#include "heapify.h"
+#include "heap.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     if (strcmp(argv[1], operation[1]) == 0)
     {
         cout << "Running bubblesort." << endl;
-        bubblesort(*array, v.size());
+        bubblesort(array, v.size());
         // Output the sorted list
         for (int i = 0; i < v.size(); ++i)
         {
