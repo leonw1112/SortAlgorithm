@@ -5,7 +5,6 @@
 #include <string.h>
 #include <vector>
 #include <algorithm>
-// #include "sortbase.h"
 #include "bubble.h"
 #include "quick.h"
 #include "mergesort.h"
@@ -16,6 +15,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+    // char linp;
     if (argc <= 1)
     {
         cout << "Please enter a parameter. (type ./main help)"
@@ -30,81 +30,91 @@ int main(int argc, char *argv[])
         "insertion",
         "heap"};
 
-    const string fileName = "list.txt";
-
-    ifstream fin(fileName.c_str());
-
-    if (!fin)
-    {
-        cerr << "Error: File "
-             << "'list.txt'"
-             << " not found." << endl;
-        exit(1);
-    }
-    vector<int> v;
-    int c;
-    while (fin >> c)
-    {
-        v.push_back(c);
-    }
-    int array[v.size()];
-    copy(v.begin(), v.end(), array);
-
-    clock_t start = clock();
+    int inps;
+    int inpc;
+    cout << "How often do you want to sort?: ";
+    cin >> inps;
+    cout << "How many numbers?: ";
+    cin >> inpc;
 
     if (strcmp(argv[1], operation[1]) == 0)
     {
         cout << "Running bubblesort." << endl;
-
         BubbleSort s;
-        s.sort(array, v.size());
-
-        s.print(array, v.size());
+        int bubblearr[inpc];
+        for (int i = 0; i < inps; i++)
+        {
+            vector<int> arr = s.listgenarray(inpc);
+            copy(arr.begin(), arr.end(), bubblearr);
+            s.sort(bubblearr, arr.size());
+        }
+        s.printmean();
     }
     else if (strcmp(argv[1], operation[2]) == 0) // Changed to "else if"
     {
         cout << "Running quicksort." << endl;
         QuickSort s;
-        s.sort(array, 0, v.size() - 1);
-
-        s.print(array, v.size());
+        int quickarr[inpc];
+        for (int i = 0; i < inps; i++)
+        {
+            vector<int> arr = s.listgenarray(inpc);
+            copy(arr.begin(), arr.end(), quickarr);
+            s.sort(quickarr, 0, arr.size() - 1);
+        }
+        s.printmean();
     }
     else if (strcmp(argv[1], operation[3]) == 0)
     {
         cout << "Running mergesort." << endl;
         MergeSort s;
-        s.sort(array, 0, v.size() - 1);
+        int mergearr[inpc];
+        for (int i = 0; i < inps; i++)
+        {
+            vector<int> arr = s.listgenarray(inpc);
+            copy(arr.begin(), arr.end(), mergearr);
+            s.sort(mergearr, 0, arr.size() - 1);
+        }
+        s.printmean();
     }
     else if (strcmp(argv[1], operation[4]) == 0)
     {
         cout << "Running insertionsort." << endl;
         InsertionSort s;
-        s.sort(array, v.size());
+        int insertionarr[inpc];
+        for (int i = 0; i < 10; i++)
+        {
+            vector<int> arr = s.listgenarray(inpc);
+            copy(arr.begin(), arr.end(), insertionarr);
+            s.sort(insertionarr, arr.size());
+        }
+        s.printmean();
     }
     else if (strcmp(argv[1], operation[5]) == 0)
     {
         cout << "Running heapsort." << endl;
 
         HeapSort s;
-        s.sort(array, v.size());
+        int heaparr[inpc];
+        for (int i = 0; i < 10; i++)
+        {
+            vector<int> arr = s.listgenarray(inpc);
+            copy(arr.begin(), arr.end(), heaparr);
+            s.sort(heaparr, arr.size());
+        }
+        s.printmean();
     }
     else if (strcmp(argv[1], operation[0]) == 0)
     {
-        cout << "----------";
-        cout << "Operations:\n bubble \n quick \n merge \n insertion \n heap \n";
+        cout << "---------- \n";
+        cout << "Operations:\n bubble \n quick \n merge \n insertion \n heap \n listgen \n";
     }
     else
     {
         cout << "Invalid algorithm choice." << endl;
+        exit(0);
     }
-
-    clock_t end = clock();
-
-    double timeDifference = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000.0;
-
-    std::cout << "Difference in ms: " << timeDifference << " ms" << std::endl;
-    cout << "Processed " << v.size() << " elements"
-         << " with " << argv[1] << endl;
+    // cout << "Processed " << v.size() << " elements"
+    // << " with " << argv[1] << endl;
 
     return 0;
 }
